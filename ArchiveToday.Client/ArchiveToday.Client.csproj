@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Terry Butler</Authors>
+    <PackageId>ArchiveToday.Client</PackageId>
+    <Version>1.0.0</Version>
+    <Company>Terry Butler</Company>
+    <Product>ArchiveToday.Client</Product>
+    <Description>Retrieve the Timemap from Archive.Today</Description>
+    <PackageProjectUrl>https://github.com/terryjbutler/ArchiveToday.Client</PackageProjectUrl>	
   </PropertyGroup>
 
   <ItemGroup>
