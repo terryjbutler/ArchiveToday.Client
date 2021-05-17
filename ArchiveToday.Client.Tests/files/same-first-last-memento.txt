@@ -1,0 +1,4 @@
+<https://test.localdev>; rel="original",
+<http://archive.md/timegate/https://test.localdev>; rel="timegate",
+<http://archive.md/20210507123456/https://test.localdev>; rel="first last memento"; datetime="Fri, 07 May 2021 12:34:56 GMT",
+<http://archive.md/timemap/https://test.localdev>; rel="self"; type="application/link-format"; from="Fri, 07 May 2021 12:34:56 GMT"; until="Fri, 07 May 2021 12:34:56 GMT"
