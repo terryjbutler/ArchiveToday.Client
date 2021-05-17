@@ -40,11 +40,11 @@ namespace ArchiveToday.Client.Tests
         }
 
         [TestMethod]
-        public async Task Number_of_Mementos_Equals_403()
+        public async Task Number_of_Mementos_Equals_400()
         {
             var response = await _archiveTodayClient.GetTimemapAsync(new Uri("https://www.bbc.co.uk/"));
 
-            Assert.AreEqual(403, response.ArchiveMementos.Count);
+            Assert.AreEqual(400, response.ArchiveMementos.Count);
         }
 
         [TestMethod]
