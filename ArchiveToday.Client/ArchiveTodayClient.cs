@@ -34,7 +34,11 @@ namespace ArchiveToday.Client
 
             var ret = new GetTimemapResponse();
 
-            foreach (var item in rfc6690ParserResponse.ConstrainedLinks)
+            var mementoConstrainedLinks = rfc6690ParserResponse
+                .ConstrainedLinks.Where(a => a.Params.ContainsKey("rel") && a.Params["rel"].Contains("memento"))
+                .ToList();
+
+            foreach (var item in mementoConstrainedLinks)
             {
                 if (!Uri.TryCreate(item.Link, UriKind.Absolute, out Uri uri))
                 {
