@@ -63,8 +63,17 @@ namespace ArchiveToday.Client
                 .OrderBy(a => a.DateTime)
                 .ToList();
 
-            ret.FirstMemento = ret.ArchiveMementos?.SingleOrDefault(a => a.Rel.Equals("first memento", StringComparison.InvariantCultureIgnoreCase));
-            ret.LastMemento = ret.ArchiveMementos?.SingleOrDefault(a => a.Rel.Equals("last memento", StringComparison.InvariantCultureIgnoreCase));
+            var sameFirstLastMemento = ret.ArchiveMementos?.SingleOrDefault(a => a.Rel.Equals("first last memento", StringComparison.InvariantCultureIgnoreCase));
+            if (sameFirstLastMemento != null)
+            {
+                ret.FirstMemento = sameFirstLastMemento;
+                ret.LastMemento = sameFirstLastMemento;
+            }
+            else
+            {
+                ret.FirstMemento = ret.ArchiveMementos?.SingleOrDefault(a => a.Rel.Equals("first memento", StringComparison.InvariantCultureIgnoreCase));
+                ret.LastMemento = ret.ArchiveMementos?.SingleOrDefault(a => a.Rel.Equals("last memento", StringComparison.InvariantCultureIgnoreCase));
+            }
 
             ret.DateFrom = ret.FirstMemento?.DateTime ?? ret.ArchiveMementos?.OrderBy(a => a.DateTime).First()?.DateTime;
             ret.DateUntil = ret.LastMemento?.DateTime ?? ret.ArchiveMementos?.OrderByDescending(a => a.DateTime).First()?.DateTime;
